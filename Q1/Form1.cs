@@ -53,9 +53,10 @@ namespace Q1
 				inputArray[i] = input[i].ToString();
 			}
 
-
 			int[] result = newGame.GetResult(inputArray,this.answer);
+
 			textBoxResult.Text += $"{input}，{result[0]}A{result[1]}B\r\n";
+			
 			if (result[0]==4)
 			{
 				MessageBox.Show("答對了!!");
