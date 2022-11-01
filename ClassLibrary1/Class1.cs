@@ -12,12 +12,15 @@ namespace ClassLibrary1
 		public string[] GetAns() 
 		{
 			this.answer = new string[4];
-			for (int i=0; i<answer.Length; i++)
+			string[]ans=new string[] {"0","1","2","3","4","5","6","7","8","9" };
+			for (int i=0; i<ans.Length; i++)
 			{
 				int seed=Guid.NewGuid().GetHashCode();
 				var random = new Random(seed);
 				int radomNumber = random.Next(0, 10);
-				answer[i] = radomNumber.ToString();
+				string temp =ans[i];
+				ans[i] = ans[radomNumber];
+				ans[radomNumber] = temp;
 			}
 			return answer; //answer{1,2,3,4}
 		}
@@ -56,9 +59,6 @@ namespace ClassLibrary1
 			
 			return new int[] { a, b };
 		}
-
-
-
 
 	}
 }

@@ -41,8 +41,12 @@ namespace Q1
 				MessageBox.Show(ex.Message);
 				return;
 			}
-			
-			string[] inputArray = input.Split(new char[] {' '});
+
+			string[] inputArray = new string[4];
+			for(int i = 0; i < inputArray.Length; i++)
+			{
+				inputArray[i] = input[i].ToString();
+			}
 			
 
 			int[] answer = newGame.GetResult(inputArray, this.answer);
