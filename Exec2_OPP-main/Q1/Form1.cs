@@ -13,12 +13,11 @@ namespace Q1
 {
 	public partial class Form1 : Form
 	{
-		public string[] answer;
+		private string[] answer;
 		public Form1()
 		{
 			InitializeComponent();
-			label1.Text = string.Empty;
-			
+
 		}
 		
 
@@ -26,17 +25,13 @@ namespace Q1
         {
 			var newGame = new Class1();
 			this.answer = newGame.GetAns();
-			textBoxResult.Text = string.Empty;
-			textBoxInput.Text = string.Empty;
-			label1.Text = $"{answer[0]}{answer[1]}{answer[2]}{answer[3]}";
-
 		}
 
 		private void buttonSend_Click(object sender, EventArgs e)
 		{
-			string input = textBoxInput.Text;
+			string input =textBoxInput.Text;
 			var newGame = new Class1();
-			
+			newGame.answer=this.answer;
 			try
 			{
 				int inputInt = newGame.IsFourNum(input);
@@ -48,18 +43,18 @@ namespace Q1
 			}
 
 			string[] inputArray = new string[4];
-			for (int i = 0; i < inputArray.Length; i++)
+			for(int i = 0; i < inputArray.Length; i++)
 			{
 				inputArray[i] = input[i].ToString();
 			}
+			
 
+			int[] answer = newGame.GetResult(inputArray, this.answer);
+			textBoxResult.Text += $"{this.answer[0]}{this.answer[1]}{this.answer[2]}{this.answer[3]}\r\n{answer[0]}A{answer[1]}B\r\n";
 
-			int[] result = newGame.GetResult(inputArray,this.answer);
-			textBoxResult.Text += $"{input}，{result[0]}A{result[1]}B\r\n";
-			if (result[0]==4)
-			{
-				MessageBox.Show("答對了!!");
-			}
+			
 		}
+
+		
 	}
 }
