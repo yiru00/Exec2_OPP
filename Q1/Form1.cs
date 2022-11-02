@@ -18,7 +18,9 @@ namespace Q1
 		{
 			InitializeComponent();
 			label1.Text = string.Empty;
-			
+			var newGame = new Class1();
+			this.answer = newGame.GetAns();
+			label1.Text = $"{answer[0]}{answer[1]}{answer[2]}{answer[3]}";
 		}
 		
 
@@ -36,6 +38,7 @@ namespace Q1
 		{
 			string input = textBoxInput.Text;
 			var newGame = new Class1();
+			textBoxInput.Text = string.Empty;
 			
 			try
 			{

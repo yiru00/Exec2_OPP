@@ -26,7 +26,7 @@ namespace ClassLibrary1
 			}
 			for (int j = 0; j < 4; j++)
 			{
-				this.answer[j] = ans[j].ToString();
+				this.answer[j] = ans[j];
 			}
 			return answer; 
 		}
@@ -36,7 +36,7 @@ namespace ClassLibrary1
 			bool isInt=int.TryParse(input, out int num);
 
 			//檢查輸入字串的長度&是否為數字
-			if (isInt==false ||input.Length!=4 )
+			if (!isInt ||input.Length!=4 )
 			{
 				throw new Exception("請輸入四個數字");
 			}
@@ -63,19 +63,20 @@ namespace ClassLibrary1
 			
 			for (int i = 0; i < inputArray.Length; i++)
 			{
+				if (inputArray[i] == answer[i])
+				{
+					a++;
+					continue;
+				}
 				for (int k = 0; k < inputArray.Length; k++)
 				{
-					if (inputArray[i] ==answer[k])
+					if (inputArray[i] == answer[k])
 					{
-						if (i == k)
-						{
-							a++;
-							continue;
-						}
-						else { b++; }
+						 b++;
 					}
 				}
 			}
+
 			return new int[] { a, b };
 		}
 
