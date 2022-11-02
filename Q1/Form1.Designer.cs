@@ -67,8 +67,10 @@
 			this.textBoxResult.Location = new System.Drawing.Point(109, 251);
 			this.textBoxResult.Multiline = true;
 			this.textBoxResult.Name = "textBoxResult";
+			this.textBoxResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.textBoxResult.Size = new System.Drawing.Size(177, 131);
 			this.textBoxResult.TabIndex = 3;
+			this.textBoxResult.WordWrap = false;
 			// 
 			// label1
 			// 
