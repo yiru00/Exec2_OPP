@@ -17,14 +17,15 @@ namespace Q2
 			this.DiceNum= DiceGame.GetRandomDice();
 			diceResultLabel.Text = $"{DiceNum[0]}{DiceNum[1]}{DiceNum[2]}{DiceNum[3]}";
 
+
+			//把答案按照順序排
+			Array.Sort(DiceNum);
+
 			//判斷是否有重複兩次以上的點數
 			int same = 0;
-			for (int j = 0; j < DiceNum.Length; j++)
+			for (int j = 0; j < DiceNum.Length-1; j++)
 			{
-				for (int k = j + 1; k < DiceNum.Length; k++)
-				{
-					if (DiceNum[j] == DiceNum[k]) { same++; }
-				}
+				if (DiceNum[j] == DiceNum[j+1]) { same++; }
 			}
 			if (same ==0) { 
 				MessageBox.Show("重骰");
